@@ -1,0 +1,16 @@
+To create a new theme:
+
+1. Select theme to be edited
+
+2. Select new main color
+
+3. Select new secondary color
+
+4. Apply selections to update preview
+
+5. Enter name for new theme
+
+6. Click to create theme
+
+
+Note: themes are saved in ~/.themes
