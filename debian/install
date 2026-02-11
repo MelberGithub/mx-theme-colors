@@ -1,0 +1,6 @@
+mx-theme-colors     usr/bin
+*.desktop           usr/share/applications
+icons/*             usr/share/icons/hicolor/scalable/apps
+images/*           usr/share/mx-theme-colors/
+templates/*	        usr/share/mx-theme-colors/templates
+translations/mo/*   /
