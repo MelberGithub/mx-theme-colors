@@ -1,0 +1,372 @@
+#!/bin/bash
+#Edit the colors of MX-Linux themes
+#for MX-Linux 25 by Melber
+#License: GPL-3.0+
+mxte_version='26.01.01'
+
+
+export TEXTDOMAINDIR=/usr/share/locale
+export TEXTDOMAIN="mxfb-accessories"
+source gettext.sh
+
+#variables
+export title="$(gettext 'MX Theme Editor')"
+export class="mx-theme-editor"
+export iconpath="$HOME/Dokumente/mx-theme-editor/mx-theme-editor.svg"
+
+
+# color picker function for main window
+
+color_picker() {
+    local N=$1 C="$2"
+    local YAD=( yad --title="Color-Picker" --class=color-select \
+               --window-icon=color-select --posx=200 --posy=200 \
+               --color --init-color="$C" --picker )
+    C=$("${YAD[@]}")
+    (($?==0)) && echo "$N:$C"
+}
+
+
+# help function for main window
+
+mxte-help() {
+text_helptitle="$(gettext 'MX Theme Editor Help')"
+help_text0="$(gettext 'To create a new theme:')"
+help_text1="$(gettext 'Select theme to be edited')"
+help_text2="$(gettext 'Select new main color')"
+help_text3="$(gettext 'Select new secondary color')"
+help_text4="$(gettext 'Apply selections')"
+help_text5="$(gettext 'Enter name for new theme')"
+help_text6="$(gettext 'Click create theme')"
+
+
+helppath="/usr/share/mxfb-style-editor/help"
+help_imagepath=/home/melber/Dokumente/mx-theme-editor/mxte-help.png
+
+yad --title="$text_helptitle" --class="$class" --window-icon="$iconpath" \
+--borders=20 --width=700 --height=450 --text-align=left \
+--image="$help_imagepath" \
+--text="<b>$help_text0</b>\n\n1. $help_text1\n\n2. $help_text2\n\n3. $help_text3\n\n4. $help_text4\n\n5. $help_text5\n\n6. $help_text6" \
+--button="yad-close" --close-on-unfocus
+}
+
+
+# about window
+mxte-about() {
+
+#TRANSLATORS Text in About window
+text_about=$(gettext "Edit the colors of MX themes.")
+iconpath96="$HOME/Dokumente/mx-theme-editor/mx-theme-editor96.svg"
+
+yad --about --class="$class" --window-icon="$iconpath" \
+--image="$iconpath96" \
+--pname="$title" \
+--pversion="$mxte_version" \
+--comments="$text_about" \
+--website-label="https://mxlinux.org/" \
+--website="https://mxlinux.org/" \
+--copyright="Copyright (c) 2026 Melber" \
+--authors="Melber, MX Devs" \
+--license="GPL3"
+
+}
+
+
+### color_change function called with yad button
+color_change () {
+
+    echo -e "\f"
+    local theme_selection=$1 color_main=$2 color_secondary=$3
+    
+    case $theme_selection in
+    mx-ease )
+        preview_image=ease-preview-template.svg
+        cp $HOME/Dokumente/mx-theme-editor/$preview_image /tmp/preview-template.svg
+
+        sed -i "s/#0f56d9/$color_main/g" /tmp/preview-template.svg
+        sed -i "s/#c3d5f6/$color_secondary/g" /tmp/preview-template.svg
+    ;;
+    
+    mx-ease-Dark )
+        preview_image=ease-dark-preview-template.svg
+        cp $HOME/Dokumente/mx-theme-editor/$preview_image /tmp/preview-template.svg
+
+        sed -i "s/#2e63ba/$color_main/g" /tmp/preview-template.svg
+        sed -i "s/#a3b5d9/$color_secondary/g" /tmp/preview-template.svg
+    ;;
+    
+    mx-matcha )
+        preview_image=matcha-preview-template.svg
+    ;;    
+    esac
+    
+echo "/tmp/preview-template.svg"
+
+}
+
+
+
+########
+
+
+
+
+### main function
+create_theme () {
+
+#text variables
+text_mainitem0="$(gettext 'Base Theme')"
+text_mainitem1="$(gettext 'Main Color')"
+text_mainitem2="$(gettext 'Secondary Color')"
+text_mainitem3="$(gettext 'Apply Selections')"
+text_mainname="$(gettext 'New theme name')"
+text_maincurrent="$(gettext 'Make new theme current?')"
+
+#buttons
+BTN_CLOSE="$(gettext 'Close')" ; BTN_CLOSE+='!window-close!'
+BTN_CREATE="$(gettext 'Create Theme')" ; BTN_CREATE+='!gtk-ok!'
+BTN_HELP="$(gettext 'Help')" ; BTN_HELP+='!help-about!'
+BTN_ABOUT="$(gettext 'About')" ; BTN_ABOUT+='!help-about!'
+btn_picker="$(gettext 'Picker')"
+btn_apply="$(gettext 'Apply')"
+
+#pipe
+export fpipe="$(mktemp -u --tmpdir mxthemeeditor.XXXXXX)"
+mkfifo "$fpipe"
+trap "rm "$fpipe"" EXIT
+exec 3<> "$fpipe"
+
+rkey=$RANDOM
+
+echo "/home/melber/Dokumente/mx-theme-editor/ease-preview-template.svg">$fpipe
+
+
+### main ###
+
+yad --plug=$rkey --tabnum=2 \
+--form --columns=1 --align=left --separator="|" \
+--field="<b>$text_mainitem0</b>":LBL " " \
+--field="":CB "mx-ease!mx-ease-Dark!mx-matcha" \
+--field=" ":LBL " " \
+--field="<b>$text_mainitem1</b>":LBL " " \
+--field="":CLR "#0f56d9" \
+--field="$btn_picker!color-select!":BTN '@bash -c "color_picker 5 %5;"' \
+--field=" ":LBL " " \
+--field="<b>$text_mainitem2</b>":LBL " " \
+--field="":CLR "#c3d5f6" \
+--field="$btn_picker!color-select!":BTN '@bash -c "color_picker 9 %9;"' \
+--field=" ":LBL " " \
+--field="$text_mainitem3!reload!":BTN '@bash -c "color_change %2 %5 %9 >$fpipe"' \
+--field=" ":LBL " " \
+--field="<b>$text_mainname</b>":LBL " " \
+--field=" " "new" \
+--field=" ":LBL " " \
+>/tmp/mxte-output.txt &
+
+text_previewbox="$(gettext 'Preview')"
+
+yad --plug=$rkey --tabnum=1 \
+--list --no-headers --no-selection \
+--text="<b>$text_previewbox</b>" --text-align=left \
+--listen --cycle-read \
+--column=":IMG" <&3  &
+
+#TRANSLATORS Window main text
+TEXT1="$(gettext 'Select base theme, main and secondary colors.')"
+TEXT2="$(gettext 'Apply selections, then name and create new theme.')"
+TEXT3="$(gettext 'Name and create new theme.')"
+
+yad --paned --key=$rkey \
+--orient=horiz --splitter=300 \
+--title="$title" --class="$class" --window-icon="$iconpath" \
+--borders=10 --center --width=520 --height=550 --buttons-layout=spread \
+--text="\n<b>$TEXT1\n$TEXT2</b>\n" --text-align=center \
+--button="${BTN_ABOUT}":"bash -c mxte-about" \
+--button="${BTN_HELP}":"bash -c mxte-help" \
+--button="${BTN_CLOSE}":2 \
+--button="${BTN_CREATE}":4 --align-buttons \
+
+ret=$?
+
+case $ret in
+    2 | 252 )
+      alldone="yep"
+
+    ;;
+
+    4 )
+        # start progress yad
+        progress_text="$(gettext 'Creating theme')" 
+        {
+        waittime=0
+        echo $waittime
+        echo "# $((waittime))%"
+    
+        #read colors and theme name
+        sed -i 's/ /-/g' /tmp/mxte-output.txt
+        sed -i 's/|/ /g' /tmp/mxte-output.txt
+        
+        read -a yadarray < /tmp/mxte-output.txt
+        
+        theme_name_base=${yadarray[0]}
+        theme_name_new=${yadarray[0]}-${yadarray[3]} 
+        color_main_new=${yadarray[1]}
+        color_secondary_new=${yadarray[2]}
+
+        #copy theme
+        if [ ! -d "$HOME/.local/share/themes" ]; then
+            mkdir -p $HOME/.local/share/themes
+        fi
+        
+        theme_path_new=$HOME/.themes/$theme_name_new
+        
+        cp -r /usr/share/themes/$theme_name_base $theme_path_new
+        sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new/index.theme
+        
+        printf "#mx theme editor config - do not delete
+theme_name_base=$theme_name_base
+theme_name_new=$theme_name_new
+color_main_new=$color_main_new
+color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
+        
+        #edit colors  
+    
+        case $theme_name_base in     
+            mx-ease )
+                color_main_old=#0f56d9
+                color_secondary_old=#c3d5f6
+            ;;
+            mx-ease-Dark )
+                color_main_old=#2e63ba
+                color_secondary_old=#a3b5d9
+            ;;
+        esac
+
+        template_path=/usr/share/mx-theme-editor/templates
+  
+        
+        #progress yad 25%
+        waittime=25
+        echo $waittime
+        echo "# $((waittime))%"
+    
+        
+        #xfwm
+#        cp -r $template_path/$theme_name_base/xfwm /tmp/temp-xfwm
+        cp -r $HOME/Dokumente/mx-theme-editor/templates/$theme_name_base/xfwm /tmp/temp-xfwm
+        cd /tmp/temp-xfwm
+
+#        xfwm_index="$template_path/$theme_name_base/asset-list-xfwm"
+        xfwm_index="$HOME/Dokumente/mx-theme-editor/templates/$theme_name_base/asset-list-xfwm"
+        for i in `cat $xfwm_index`; do
+            sed -i "s/$color_main_old/$color_main_new/g" $i.svg
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $i.svg
+            convert $i.svg $theme_path_new/xfwm4/$i.png
+        done
+
+
+        #progress yad 50%
+        waittime=50
+        echo $waittime
+        echo "# $((waittime))%"
+
+          
+        #gtk2
+        sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-2.0/gtkrc
+        sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-2.0/gtkrc
+                           
+#        cp -r $template_path/$theme_name_base/gtk2 /tmp/temp-gtk2
+        cp -r $HOME/Dokumente/mx-theme-editor/templates/$theme_name_base/gtk2 /tmp/temp-gtk2
+        cd /tmp/temp-gtk2
+
+#        gtk2_index="$template_path/$theme_name_base/asset-list-gtk2"
+        gtk2_index="$HOME/Dokumente/mx-theme-editor/templates/$theme_name_base/asset-list-gtk2"
+        for i in `cat $gtk2_index`; do
+            sed -i "s/$color_main_old/$color_main_new/g" $i.svg
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $i.svg
+            convert $i.svg $theme_path_new/gtk-2.0/assets/$i.png
+        done
+
+   
+        #progress yad 75%
+        waittime=75
+        echo $waittime
+        echo "# $((waittime))%"
+
+         
+        #gtk3
+        sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-3.0/gtk.css $theme_path_new/gtk-3.0/extra-tweaks.css
+        sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-3.0/gtk.css $theme_path_new/gtk-3.0/extra-tweaks.css
+                             
+#        cp -r $template_path/$theme_name_base/gtk3 /tmp/temp-gtk3
+        cp -r $HOME/Dokumente/mx-theme-editor/templates/$theme_name_base/gtk3 /tmp/temp-gtk3
+        cd /tmp/temp-gtk3
+
+#        gtk3_index="$template_path/$theme_name_base/asset-list-gtk3"
+        gtk3_index="$HOME/Dokumente/mx-theme-editor/templates/$theme_name_base/asset-list-gtk3"
+        for i in `cat $gtk3_index`; do
+            sed -i "s/$color_main_old/$color_main_new/g" $i.svg
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $i.svg
+            convert $i.svg $theme_path_new/gtk-3.0/assets/$i.png
+        done
+
+        #progress yad 90%
+        waittime=90
+        echo $waittime
+        echo "# $((waittime))%"
+        
+
+        #gtk4
+        sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-4.0/gtk.css
+        
+        sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-4.0/gtk.css
+                             
+
+        cp -r $HOME/.themes/$theme_path_new/gtk-3.0/assets $HOME/.themes/$theme_path_new/gtk-4.0/assets
+      
+
+        # close progress yad
+        waittime=100
+        echo $waittime
+        echo "# $((waittime))%"
+        progress_text="$(gettext 'Creating theme')"
+
+        } | yad --progress --title="$title" --class="$class" \
+        --borders=10 --center --width=400 \
+        --text="<b>$progress_text</b>" --text-align=center \
+        --auto-close --auto-kill
+    
+        
+        #all done        
+        text_finished1="$(gettext 'All done!')"
+        text_finished2="$(gettext 'has been created in')"
+        text_finished3="$HOME/.themes"        
+        text_finished4="$(gettext 'Set themes with MX-Tweak')"
+
+        yad --title="$title" --class="$class" --window-icon="$iconpath" \
+        --width=400 --height=250 --fixed --center --borders=20 --text-align=center \
+        --text="$text_finished1\n\n<b>$theme_name_new</b> $text_finished2 $text_finished3\n\n$text_finished4" \
+        --button=yad-ok
+        
+        alldone="nope"
+
+    ;;
+
+esac
+
+exec 3>&-
+
+}
+
+export -f color_picker mxte-help mxte-about color_change create_theme
+
+
+until [ "$alldone" = "yep" ]; do
+    create_theme
+    echo "$alldone"
+done
+
+rm /tmp/preview-template.svg
+rm -rf $theme_path_new/svg2 $theme_path_new/svg3
+
+exit 0
