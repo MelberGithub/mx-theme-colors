@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="18"
+   height="32"
+   viewBox="0 0 18 32"
+   id="svg2"
+   version="1.1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="matcha">
+    <linearGradient
+       xlink:href="#header_bg"
+       id="linearGradient32062"
+       gradientUnits="userSpaceOnUse"
+       x1="19"
+       y1="585.36218"
+       x2="19"
+       y2="557.36218"
+       gradientTransform="translate(15.555556,10.000067)" />
+    <linearGradient
+       id="header_bg">
+      <stop
+         style="stop-color:#1b1d24;stop-opacity:1;"
+         offset="0"
+         id="stop1167" />
+    </linearGradient>
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-191,-623.36215)">
+    <g
+       id="stick-toggled-inactive">
+      <g
+         id="stick-inactive-7"
+         transform="translate(4.3e-6,65.99999)">
+        <g
+           id="use5115-0"
+           transform="matrix(0.64285714,0,0,1,187.78571,-2.2617187e-5)">
+          <rect
+             style="opacity:1;fill:url(#linearGradient32062);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect32056"
+             width="28"
+             height="31.999998"
+             x="5"
+             y="557.36218" />
+          <rect
+             style="opacity:1;fill:#0f56d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect32058"
+             width="28"
+             height="2"
+             x="5"
+             y="557.36212" />
+        </g>
+        <g
+           id="g5140-1-9"
+           transform="translate(48,2.9999812)"
+           style="fill:#b9bfce;fill-opacity:1" />
+      </g>
+      <ellipse
+         style="fill:#5a5c64;fill-opacity:1;stroke-width:1.23443"
+         id="path272-6"
+         cx="200"
+         cy="639.36218"
+         rx="4"
+         ry="4.0000072" />
+      <rect
+         style="fill:#0f56d9;fill-opacity:1;fill-rule:evenodd;stroke:#ffffff;stroke-width:0;paint-order:markers fill stroke"
+         id="rect1617-3-5-6"
+         width="17.999998"
+         height="1.9999989"
+         x="191"
+         y="623.36218" />
+    </g>
+  </g>
+</svg>

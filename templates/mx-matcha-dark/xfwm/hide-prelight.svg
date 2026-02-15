@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="28"
+   height="32"
+   viewBox="0 0 28 32"
+   id="svg2"
+   version="1.1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="matcha">
+    <linearGradient
+       id="header_bg">
+      <stop
+         style="stop-color:#1b1d24;stop-opacity:1;"
+         offset="0"
+         id="stop1167" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#header_bg"
+       id="linearGradient8524"
+       gradientUnits="userSpaceOnUse"
+       x1="19"
+       y1="585.36218"
+       x2="19"
+       y2="557.36218"
+       gradientTransform="translate(10,9.9999976)" />
+  </defs>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     transform="translate(-38,-623.3621)">
+    <g
+       id="hide-prelight">
+      <g
+         id="use4226"
+         transform="translate(33,65.999977)">
+        <rect
+           style="opacity:1;fill:url(#linearGradient8524);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect9581"
+           width="28"
+           height="31.999998"
+           x="5"
+           y="557.36218" />
+        <rect
+           style="opacity:1;fill:#0f56d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect9583"
+           width="28"
+           height="2"
+           x="5"
+           y="557.36212" />
+      </g>
+      <ellipse
+         cy="640.36212"
+         cx="52"
+         style="display:inline;opacity:0.45;fill:#717e8a;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="path4068-7-5-9-6-7-2-1-6-1"
+         rx="12"
+         ry="12.000001" />
+      <path
+         style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#a9afbd;fill-opacity:1;stroke:none;stroke-width:2.30942;marker:none;enable-background:accumulate"
+         id="rect9057-8-2-3"
+         d="m 48,639.36215 v 2.00004 h 8 v -2.00004 z" />
+      <rect
+         style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1.375;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+         id="rect17883-11-4-0"
+         width="22"
+         height="22"
+         x="41"
+         y="626.36212" />
+    </g>
+  </g>
+</svg>

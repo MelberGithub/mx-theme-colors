@@ -1,8 +1,8 @@
 #!/bin/bash
-#Edit the colors of MX-Linux themes
+#Edit the highlight colors of MX-Linux themes
 #for MX-Linux 25 by Melber
 #License: GPL-3.0+
-mxtc_version='26.01.01'
+mxtc_version='26.02.01'
 
 export TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mx-theme-colors"
@@ -10,12 +10,16 @@ source gettext.sh
 
 #variables
 export title="$(gettext 'MX Theme Editor')"
-export class="mx-theme-editor"
-export iconpath="$HOME/Dokumente/mx-theme-editor/mx-theme-editor.svg"
+export class="mx-theme-colors"
+export iconpath="/usr/share/icons/hicolor/scalable/apps/mx-theme-colors.svg"
 
 #check for themes
-if [ -d /usr/share/themes/mx-matchaXXX ]; then
+if [ -d /usr/share/themes/mx-matcha ]; then
     found_matcha='mx-matcha!'
+fi
+
+if [ -d /usr/share/themes/mx-matcha-dark ]; then
+    found_matchadark='mx-matcha-dark!'
 fi
 
 if [ -d /usr/share/themes/mx-ease ]; then
@@ -26,7 +30,7 @@ if [ -d /usr/share/themes/mx-ease-Dark ]; then
     found_easedark='mx-ease-Dark'
 fi
 
-found_themes="$found_matcha$found_ease$found_easedark"
+found_themes="$found_matcha$found_matchadark$found_ease$found_easedark"
 
 if [ -z "$found_themes" ]; then
 #TRANSLATORS warning message if themes are not installed line 1
@@ -59,17 +63,37 @@ color_picker() {
 # help function for main window
 
 mxtc-help() {
-text_helptitle="$(gettext 'MX Theme Editor Help')"
+#TRANSLATORS Help window title
+text_helptitle="$(gettext 'MX Theme Colors Help')"
+#TRANSLATORS Help window text line 0
 help_text0="$(gettext 'To create a new theme:')"
+#TRANSLATORS Help window text line 1
 help_text1="$(gettext 'Select theme to be edited')"
+#TRANSLATORS Help window text line 2
 help_text2="$(gettext 'Select new main color')"
+#TRANSLATORS Help window text line 3
 help_text3="$(gettext 'Select new secondary color')"
+#TRANSLATORS Help window text line 4
 help_text4="$(gettext 'Apply selections')"
-help_text5="$(gettext 'Enter name for new theme')"
+#TRANSLATORS Help window text line 5
+help_text5="$(gettext 'Enter name for new theme (appended to selected base theme name)')"
+#TRANSLATORS Help window text line 6
 help_text6="$(gettext 'Click to create theme')"
+#TRANSLATORS Help window text line 7
 help_text7="$(gettext 'Note: themes are saved in ~/.themes')"
 
-help_imagepath=/home/melber/github/mx-theme-colors/images/mxtc-help.png
+printf "$help_text0
+
+1. $help_text1
+2. $help_text2
+3. $help_text3
+4. $help_text4
+5. $help_text5
+6. $help_text6
+
+$help_text7" > /tmp/mxtc-help.txt
+
+help_imagepath=usr/share/mx-theme-colors/mxtc-help.png
 hkey=$RANDOM
 
 yad --plug=$hkey --tabnum=1 \
@@ -77,18 +101,18 @@ yad --plug=$hkey --tabnum=1 \
 > /dev/null &
 
 yad --plug=$hkey --tabnum=2 \
---text-info < /home/melber/github/mx-theme-colors/images/mxtc-help.txt \
+--text-info --wrap < /tmp/mxtc-help.txt \
 --margins=5 \
 > /dev/null &
 
 yad --paned --key=$hkey --orient=horiz --splitter=350 \
 --title="$text_helptitle" --class="$class" --window-icon="$iconpath" \
 --borders=10 --center --width=750 --height=300 --text-align=left \
---button="yad-close" --close-on-unfocus \
+--button="yad-close" \
+
+rm /tmp/mxtc-help.txt
 
 }
-
-#--text="<b>$help_text0</b>\n\n1. $help_text1\n\n2. $help_text2\n\n3. $help_text3\n\n4. $help_text4\n\n5. $help_text5\n\n6. $help_text6\n\n\n $help_text7" \
 
 
 # about window
@@ -96,7 +120,8 @@ mxtc-about() {
 
 #TRANSLATORS Text in About window
 text_about=$(gettext "Edit the highlight colors of MX themes.")
-iconpath96="$HOME/Dokumente/mx-theme-editor/mx-theme-editor96.svg"
+
+iconpath96="/usr/share/icons/hicolor/scalable/apps/mx-theme-colors96.svg"
 
 yad --about --class="$class" --window-icon="$iconpath" \
 --image="$iconpath96" \
@@ -120,24 +145,36 @@ color_change () {
     
     case $theme_selection in
     mx-ease )
-        preview_image=ease-preview-template.svg
-        cp $HOME/Dokumente/mx-theme-editor/$preview_image /tmp/preview-template.svg
+        preview_image=ease-preview.svg
+        cp /usr/share/mx-theme-colors/$preview_image /tmp/preview-template.svg
 
         sed -i "s/#0f56d9/$color_main/g" /tmp/preview-template.svg
         sed -i "s/#c3d5f6/$color_secondary/g" /tmp/preview-template.svg
     ;;
     
     mx-ease-Dark )
-        preview_image=ease-dark-preview-template.svg
-        cp $HOME/Dokumente/mx-theme-editor/$preview_image /tmp/preview-template.svg
+        preview_image=ease-dark-preview.svg
+        cp /usr/share/mx-theme-colors/$preview_image /tmp/preview-template.svg
 
         sed -i "s/#2e63ba/$color_main/g" /tmp/preview-template.svg
         sed -i "s/#a3b5d9/$color_secondary/g" /tmp/preview-template.svg
     ;;
     
     mx-matcha )
-        preview_image=matcha-preview-template.svg
-    ;;    
+        preview_image=matcha-preview.svg
+        cp /usr/share/mx-theme-colors/$preview_image /tmp/preview-template.svg
+
+        sed -i "s/#0f56d9/$color_main/g" /tmp/preview-template.svg
+        sed -i "s/#7cb7f0/$color_secondary/g" /tmp/preview-template.svg
+    ;;
+    
+    mx-matcha-dark )
+        preview_image=matcha-dark-preview.svg
+        cp /usr/share/mx-theme-colors/$preview_image /tmp/preview-template.svg
+
+        sed -i "s/#0f56d9/$color_main/g" /tmp/preview-template.svg
+        sed -i "s/#7cb7f0/$color_secondary/g" /tmp/preview-template.svg
+    ;;
     esac
     
 echo "/tmp/preview-template.svg"
@@ -149,20 +186,33 @@ echo "/tmp/preview-template.svg"
 create_theme () {
 
 #text variables
+
+#TRANSLATORS Main window label
 text_mainitem0="$(gettext 'Base Theme')"
+#TRANSLATORS Main window label
 text_mainitem1="$(gettext 'Main Color')"
+#TRANSLATORS Main window label
 text_mainitem2="$(gettext 'Secondary Color')"
+#TRANSLATORS Main window label
 text_mainitem3="$(gettext 'Apply Selections')"
+#TRANSLATORS Main window label
 text_mainname="$(gettext 'New theme name')"
-text_maincurrent="$(gettext 'Make new theme current?')"
+#TRANSLATORS Main window label
+text_maincurrent="$(gettext 'Make new theme current')"
 
 #buttons
+#TRANSLATORS Button text
 BTN_CLOSE="$(gettext 'Close')" ; BTN_CLOSE+='!window-close!'
+#TRANSLATORS Button text
 BTN_CREATE="$(gettext 'Create Theme')" ; BTN_CREATE+='!gtk-ok!'
+#TRANSLATORS Button text
 BTN_HELP="$(gettext 'Help')" ; BTN_HELP+='!help-about!'
+#TRANSLATORS Button text
 BTN_ABOUT="$(gettext 'About')" ; BTN_ABOUT+='!help-about!'
+#TRANSLATORS Button text for color picker
 btn_picker="$(gettext 'Picker')"
-btn_apply="$(gettext 'Apply')"
+#TRANSLATORS Button text
+btn_apply="$(gettext 'Apply Selections')"
 
 #pipe
 export fpipe="$(mktemp -u --tmpdir mxthemeeditor.XXXXXX)"
@@ -172,7 +222,7 @@ exec 3<> "$fpipe"
 
 rkey=$RANDOM
 
-echo "/home/melber/Dokumente/mx-theme-editor/ease-preview-template.svg">$fpipe
+echo "/usr/share/mx-theme-colors/matcha-preview.svg">$fpipe
 
 
 # main window
@@ -193,10 +243,12 @@ yad --plug=$rkey --tabnum=2 \
 --field="$text_mainitem3!reload!":BTN '@bash -c "color_change %2 %5 %9 >$fpipe"' \
 --field=" ":LBL " " \
 --field="<b>$text_mainname</b>":LBL " " \
---field=" " "new" \
+--field="$text_mainitem0-" "new" \
 --field=" ":LBL " " \
 >/tmp/mxtc-output.txt &
 
+
+#TRANSLATORS Main window label
 text_previewbox="$(gettext 'Preview')"
 
 yad --plug=$rkey --tabnum=1 \
@@ -205,9 +257,11 @@ yad --plug=$rkey --tabnum=1 \
 --listen --cycle-read \
 --column=":IMG" <&3  &
 
-#TRANSLATORS Window main text
+#TRANSLATORS Main window text line 1
 TEXT1="$(gettext 'Select base theme, main and secondary colors.')"
+#TRANSLATORS Main window text line 2
 TEXT2="$(gettext 'Apply selections, then name and create new theme.')"
+#TRANSLATORS Main window text line 3
 TEXT3="$(gettext 'Name and create new theme.')"
 
 yad --paned --key=$rkey \
@@ -229,13 +283,6 @@ case $ret in
     ;;
 
     4 )
-        # start progress yad
-        progress_text="$(gettext 'Creating theme')" 
-        {
-        waittime=0
-        echo $waittime
-        echo "# $((waittime))%"
-    
         #read colors and theme name
         sed -i 's/ /-/g' /tmp/mxtc-output.txt
         sed -i 's/|/ /g' /tmp/mxtc-output.txt
@@ -246,22 +293,87 @@ case $ret in
         theme_name_new=${yadarray[0]}-${yadarray[3]} 
         color_main_new=${yadarray[1]}
         color_secondary_new=${yadarray[2]}
-
-        #copy theme
-        if [ ! -d "$HOME/.local/share/themes" ]; then
-            mkdir -p $HOME/.local/share/themes
-        fi
         
         theme_path_new=$HOME/.themes/$theme_name_new
         
+        
+        #pre copy setup
+        if [ ! -d "$HOME/.themes" ]; then
+            mkdir -p $HOME/.themes
+        fi
+        
+        
+        #check if style name exists
+
+        while [ -d $theme_path_new ]; do
+    
+            #TRANSLATORS Existing theme name window text line 1
+    	    text_overwrite1="$(gettext 'A theme with this name already exists.')"
+            #TRANSLATORS Existing theme name window text line 2
+    	    text_overwrite2="$(gettext 'Do you want to overwrite or save as a different theme name')"
+    	    #TRANSLATORS Existing theme name button
+    	    btn_overwrite="$(gettext 'Overwrite theme')"
+    	    #TRANSLATORS Existing theme name button
+        	btn_savediff="$(gettext 'Save as different name')"
+
+            yad --title="$TITLE" --class="$CLASS" --window-icon="$iconpath" \
+            --width=400 --fixed \
+            --text="$text_overwrite1\n\n$text_overwrite2\n" \
+            --text-align=center --center --borders=20 \
+            --button="$btn_overwrite":2 --button="$btn_savediff":3
+
+            case $? in
+
+            2) rm -r $theme_path_new   ;;
+
+            3) 
+            theme_name_new=$(yad --title="$title" --class="$class" --window-icon="$iconpath" \
+            --width=400 --height=200 --fixed --form --center --borders=20 --separator="" \
+            --field="$text_mainname" "$theme_name_new" )    
+            
+            theme_path_new=$HOME/.themes/$theme_name_new
+            
+            ;;
+            
+            252) exit 0    ;;
+
+            esac
+        done
+        
+
+        # start progress yad
+        
+        #TRANSLATORS Progress window text
+        progress_text="$(gettext 'Creating theme')" 
+        {
+        waittime=0
+        echo $waittime
+        echo "# $((waittime))%"
+
+        
+        #copy theme        
         cp -r /usr/share/themes/$theme_name_base $theme_path_new
         sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new/index.theme
         
-        printf "#mx theme editor config - do not delete
+        #matcha pre-fixes
+        if [ $theme_name_base = mx-matcha ] || [ $theme_name_base = mx-matcha-dark ]; then
+            sed -i "s/0F56D9/0f56d9/g" $theme_path_new/gtk-2.0/gtkrc
+            sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/gtk-2.0/gtkrc
+            sed -i "s/C0C6CA/7cb7f0/g" $theme_path_new/gtk-2.0/gtkrc        
+
+            sed -i "s/0F56D9/0f56d9/g" $theme_path_new/gtk-3.0/gtk.css
+            sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/gtk-3.0/gtk.css
+            sed -i '95 s/C0C6CA/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css
+            sed -i '95 s/3774E4/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css            
+            sed -i 's/rgba(124, 183, 240, 0.35)/#7cb7f0/g' $theme_path_new/gtk-3.0/gtk.css
+        fi
+
+        #make conf
+        printf "#mx theme colors config file - do not delete
 theme_name_base=$theme_name_base
 theme_name_new=$theme_name_new
 color_main_new=$color_main_new
-color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
+color_secondary_new=$color_secondary_new" > $theme_path_new/mx-theme-colors.conf
         
         #edit colors  
     
@@ -274,10 +386,18 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
                 color_main_old=#2e63ba
                 color_secondary_old=#a3b5d9
             ;;
+            mx-matcha )
+                color_main_old=#0f56d9
+                color_secondary_old=#7cb7f0
+            ;;
+            mx-matcha-dark )
+                color_main_old=#0f56d9
+                color_secondary_old=#7cb7f0
+            ;;
         esac
 
-        template_path=/usr/share/mx-theme-editor/templates
-  
+
+        template_path=/usr/share/mx-theme-colors/templates  
         
         #progress yad 25%
         waittime=25
@@ -289,12 +409,14 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
         cp -r $template_path/$theme_name_base/xfwm /tmp/temp-xfwm
         cd /tmp/temp-xfwm
         
-        xfwm_index="$template_path/$theme_name_base/asset-list-xfwm"
+        xfwm_index=$(ls $template_path/$theme_name_base/xfwm/*.svg)
+        xfwm_index=($xfwm_index)
         
-        for i in `cat $xfwm_index`; do
-            sed -i "s/$color_main_old/$color_main_new/g" $i.svg
-            sed -i "s/$color_secondary_old/$color_secondary_new/g" $i.svg
-            convert $i.svg $theme_path_new/xfwm4/$i.png
+        for i in "${xfwm_index[@]}"; do
+            icon_name=$(basename $i | sed -e 's/.svg//g')
+            sed -i "s/$color_main_old/$color_main_new/g" $icon_name.svg
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $icon_name.svg
+            rsvg-convert $icon_name.svg > $theme_path_new/xfwm4/$icon_name.png
         done
 
 
@@ -310,13 +432,15 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
                            
         cp -r $template_path/$theme_name_base/gtk2 /tmp/temp-gtk2
         cd /tmp/temp-gtk2
-
-        gtk2_index="$template_path/$theme_name_base/asset-list-gtk2"
-
-        for i in `cat $gtk2_index`; do
-            sed -i "s/$color_main_old/$color_main_new/g" $i.svg
-            sed -i "s/$color_secondary_old/$color_secondary_new/g" $i.svg
-            convert $i.svg $theme_path_new/gtk-2.0/assets/$i.png
+        
+        gtk2_index=$(ls $template_path/$theme_name_base/gtk2/*.svg)
+        gtk2_index=($gtk2_index)
+        
+        for i in "${gtk2_index[@]}"; do
+            icon_name=$(basename $i | sed -e 's/.svg//g')
+            sed -i "s/$color_main_old/$color_main_new/g" $icon_name.svg
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $icon_name.svg
+            rsvg-convert $icon_name.svg > $theme_path_new/gtk-2.0/assets/$icon_name.png
         done
 
    
@@ -327,28 +451,32 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
 
          
         #gtk3
-        sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-3.0/gtk.css $theme_path_new/gtk-3.0/extra-tweaks.css
-        sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-3.0/gtk.css $theme_path_new/gtk-3.0/extra-tweaks.css
+        sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-3.0/gtk.css
+        sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-3.0/gtk.css
+        
+        if [ $theme_name_base = mx-ease ] || [ $theme_name_base = mx-ease-Dark ]; then
+            sed -i "s/#A3B5D9/$color_main_new/g" $theme_path_new/gtk-3.0/gtk.css
+            sed -i "s/#A3B5D9/$color_secondary_new/g" $theme_path_new/gtk-3.0/gtk.css
+            sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-3.0/extra-tweaks.css
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-3.0/extra-tweaks.css
+        fi
                              
         cp -r $template_path/$theme_name_base/gtk3 /tmp/temp-gtk3
         cd /tmp/temp-gtk3
 
-        gtk3_index="$template_path/$theme_name_base/asset-list-gtk3"
+        gtk3_index=$(ls $template_path/$theme_name_base/gtk3/*.svg)
+        gtk3_index=($gtk3_index)
 
-        for i in `cat $gtk3_index`; do
-            sed -i "s/$color_main_old/$color_main_new/g" $i.svg
-            sed -i "s/$color_secondary_old/$color_secondary_new/g" $i.svg
-            convert $i.svg $theme_path_new/gtk-3.0/assets/$i.png
+        for i in "${gtk3_index[@]}"; do
+            icon_name=$(basename $i | sed -e 's/.svg//g')
+            sed -i "s/$color_main_old/$color_main_new/g" $icon_name.svg
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $icon_name.svg
+            rsvg-convert $icon_name.svg > $theme_path_new/gtk-3.0/assets/$icon_name.png
         done
 
-        #progress yad 90%
-        waittime=90
-        echo $waittime
-        echo "# $((waittime))%"
-        
 
         #gtk4
-        cp -r $HOME/.themes/$theme_path_new/gtk-3.0/assets $HOME/.themes/$theme_path_new/gtk-4.0/assets
+        cp -r $theme_path_new/gtk-3.0/assets $theme_path_new/gtk-4.0/assets
  
         sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-4.0/gtk.css       
         sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-4.0/gtk.css
@@ -365,24 +493,32 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/theme-editor.conf
         --auto-close --auto-kill
     
         
-        #all done        
+        #all done
+        #TRANSLATORS Task Completed window text 1
         text_finished1="$(gettext 'All done!')"
-        text_finished2="$(gettext 'has been created in')"
-        text_finished3="$HOME/.themes"        
-        text_finished4="$(gettext 'Set themes with MX-Tweak')"
+        #TRANSLATORS Task Completed window text 2, text is preceeded by theme name and followed by path
+        text_finished2="$(gettext 'has been saved in')"
+
+        text_finished3="$HOME/.themes"
+        #TRANSLATORS Task Completed window text 3
+        text_finished4="$(gettext 'Change themes with MX-Tweak')"
 
         yad --title="$title" --class="$class" --window-icon="$iconpath" \
-        --width=400 --height=250 --fixed --center --borders=20 --text-align=center \
+        --width=400 --height=200 --fixed --center --borders=20 --text-align=center \
         --text="$text_finished1\n\n<b>$theme_name_new</b> $text_finished2 $text_finished3\n\n$text_finished4" \
         --button=yad-ok
         
         alldone="nope"
 
+        rm "$fpipe"
     ;;
 
 esac
 
 exec 3>&-
+
+#clean up temp files
+rm -rf /tmp/preview-template.svg /tmp/temp-xfwm /tmp/temp-gtk2 /tmp/temp-gtk3 /tmp/mxtc-output.txt
 
 }
 
@@ -393,7 +529,5 @@ until [ "$alldone" = "yep" ]; do
     create_theme
 done
 
-rm /tmp/preview-template.svg
-rm -rf $theme_path_new/svg2 $theme_path_new/svg3
 
 exit 0

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="16"
+   height="16"
+   id="svg9892"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs9894" />
+  <metadata
+     id="metadata9897">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     rx="1.9999943"
+     y="31.362196"
+     x="18.000006"
+     height="13.99999"
+     width="13.999989"
+     id="rect5147-9-1-5-7-6-7-9-2"
+     style="display:inline;opacity:1;color:#000000;overflow:visible;visibility:visible;fill:#0f56d9;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+     ry="1.9999917"
+     transform="translate(-17,-30.36218)" />
+  <rect
+     ry="0.66666085"
+     rx="0.66666085"
+     y="1033.3622"
+     x="8"
+     height="1.9999826"
+     width="5"
+     id="rect3977-39-8-0"
+     style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+     transform="rotate(45,1245.9287,516.23136)" />
+  <rect
+     ry="0"
+     y="1027.3622"
+     x="11"
+     height="7.9999828"
+     width="2"
+     id="rect3979-7-1-4"
+     style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:none"
+     transform="rotate(45,1245.9287,516.23136)" />
+</svg>

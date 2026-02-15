@@ -9,5 +9,5 @@ Homepage: <https:/mxlinux.org>
 
 Package: mx-theme-colors
 Architecture: all
-Depends: mx-ease-themes, mx-matcha-themes
+Depends: librsvg2-bin
 Description: Edit the highlight colors of MX-Linux themes

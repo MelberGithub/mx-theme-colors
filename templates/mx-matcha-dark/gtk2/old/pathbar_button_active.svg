@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25"
+   height="15"
+   id="svg9892"
+   version="1.1"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <defs
+     id="defs9894">
+    <linearGradient
+       id="linearGradient1769">
+      <stop
+         style="stop-color:#999999;stop-opacity:1;"
+         offset="0"
+         id="stop1767" />
+    </linearGradient>
+    <linearGradient
+       id="selected_fg_color">
+      <stop
+         style="stop-color:#ffffffgit;stop-opacity:1;"
+         offset="0"
+         id="stop5009" />
+    </linearGradient>
+    <linearGradient
+       id="selected_bg_color">
+      <stop
+         style="stop-color:#0f56d9;stop-opacity:1;"
+         offset="0"
+         id="stop5016" />
+    </linearGradient>
+    <linearGradient
+       id="selected_bg_color-3">
+      <stop
+         style="stop-color:#5294e2;stop-opacity:1;"
+         offset="0"
+         id="stop5016-5" />
+    </linearGradient>
+    <linearGradient
+       xlink:href="#selected_bg_color"
+       id="linearGradient1751"
+       gradientUnits="userSpaceOnUse"
+       x1="257.5"
+       y1="-152.63782"
+       x2="257.5"
+       y2="-137.63782" />
+  </defs>
+  <metadata
+     id="metadata9897">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer3"
+     style="display:inline"
+     transform="translate(-302.5,152.63782)">
+    <rect
+       ry="0"
+       rx="0"
+       y="-131.96097"
+       x="-5.9911165"
+       height="416"
+       width="507"
+       id="rect18028"
+       style="color:#000000;display:inline;overflow:visible;visibility:visible;fill:#1b1d24;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1;marker:none;enable-background:accumulate"
+       transform="scale(1,-1)" />
+  </g>
+  <g
+     id="layer1"
+     style="display:inline"
+     transform="translate(-302.5,152.63782)">
+    <g
+       style="display:inline"
+       id="pathbar_button_active">
+      <g
+         style="fill:#fafbfc;fill-opacity:1"
+         id="g946"
+         transform="translate(57.5)">
+        <rect
+           y="-152.63782"
+           x="245"
+           height="15"
+           width="25"
+           id="rect944"
+           style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      </g>
+      <g
+         transform="matrix(1,0,0,0.13333351,57.5,-119.28608)"
+         id="g950">
+        <rect
+           style="opacity:1;fill:url(#linearGradient1751);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+           id="rect948"
+           width="25"
+           height="15"
+           x="245"
+           y="-152.63782" />
+      </g>
+    </g>
+  </g>
+</svg>

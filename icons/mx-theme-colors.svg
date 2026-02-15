@@ -7,52 +7,10 @@
    viewBox="0 0 48 48"
    version="1.1"
    id="svg467"
-   sodipodi:docname="mx-theme-editor.svg"
-   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
    xmlns:svg="http://www.w3.org/2000/svg">
-  <sodipodi:namedview
-     id="namedview1"
-     pagecolor="#ffffff"
-     bordercolor="#000000"
-     borderopacity="0.25"
-     inkscape:showpageshadow="2"
-     inkscape:pageopacity="0.0"
-     inkscape:pagecheckerboard="0"
-     inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="11.541667"
-     inkscape:cx="23.956679"
-     inkscape:cy="24"
-     inkscape:window-width="1366"
-     inkscape:window-height="682"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg467" />
   <defs
      id="defs464" />
-  <rect
-     style="display:none;fill:#1d2324;fill-opacity:1;stroke:#000000;stroke-width:0;stroke-miterlimit:2;stroke-dasharray:none;paint-order:markers fill stroke"
-     id="rect2502"
-     width="40"
-     height="40"
-     x="4"
-     y="4"
-     rx="2"
-     ry="2" />
-  <path
-     fill="#ffffff"
-     opacity="0.1"
-     d="M 6,4 C 4.892,4 4,4.892 4,6 V 7 C 4,5.892 4.892,5 6,5 h 36 c 1.108,0 2,0.892 2,2 V 6 C 44,4.892 43.108,4 42,4 Z"
-     id="path640"
-     style="display:none" />
-  <path
-     opacity="0.2"
-     d="M 6,45 C 4.892,45 4,44.108 4,43 v -1 c 0,1.108 0.892,2 2,2 h 36 c 1.108,0 2,-0.892 2,-2 v 1 c 0,1.108 -0.892,2 -2,2 z"
-     id="path642"
-     style="display:none" />
   <path
      id="rect9461"
      style="display:inline;fill:#7e57c2;fill-opacity:1;fill-rule:evenodd;stroke:#cacdd0;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:1;paint-order:markers fill stroke"

@@ -11,6 +11,6 @@
      id="colors" />
   <path
      id="path2649"
-     style="display:inline;fill:#2e63ba;fill-opacity:1;stroke:#ffffff;stroke-width:2;stroke-dasharray:none;stroke-opacity:1"
+     style="display:inline;fill:#2e63ba;fill-opacity:1;stroke:#808080;stroke-width:4;stroke-dasharray:none;stroke-opacity:1"
      d="m 70,36 c 0,-3.999992 -4,-4 -4,-4 H 35.28125 A 12,12 0 0 0 24,24 12,12 0 0 0 12,36 12,12 0 0 0 24,48 12,12 0 0 0 35.3125,40 H 66 c 0,0 4,-8e-6 4,-4 z" />
 </svg>

@@ -17,7 +17,7 @@
      x="2"
      y="2" />
   <rect
-     style="fill:#ffffff;fill-opacity:1;stroke:#2e63ba;stroke-width:0.999999;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+     style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:0.999999;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
      id="rect497"
      width="17"
      height="17.000002"
