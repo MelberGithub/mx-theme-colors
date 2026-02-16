@@ -366,6 +366,7 @@ case $ret in
 
             sed -i "s/0F56D9/0f56d9/g" $theme_path_new/gtk-3.0/gtk.css
             sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/gtk-3.0/gtk.css
+            sed -i "s/449AED/7cb7f0/g" $theme_path_new/gtk-3.0/gtk.css
             sed -i '95 s/C0C6CA/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css
             sed -i '95 s/383D44/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css            
             sed -i 's/rgba(124, 183, 240, 0.35)/#7cb7f0/g' $theme_path_new/gtk-3.0/gtk.css
