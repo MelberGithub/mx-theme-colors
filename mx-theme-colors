@@ -75,8 +75,10 @@ help_text2="$(gettext 'Select new main color')"
 help_text3="$(gettext 'Select new secondary color')"
 #TRANSLATORS Help window text line 4
 help_text4="$(gettext 'Apply selections')"
+#TRANSLATORS Help window text line 4a
+help_text4a="$(gettext 'Repeat steps 1-4 until you are satisfied with the selections')"
 #TRANSLATORS Help window text line 5
-help_text5="$(gettext 'Enter name for new theme (appended to selected base theme name)')"
+help_text5="$(gettext 'Enter name for new theme (name is appended to selected base theme name)')"
 #TRANSLATORS Help window text line 6
 help_text6="$(gettext 'Click to create theme')"
 #TRANSLATORS Help window text line 7
@@ -88,12 +90,13 @@ printf "$help_text0
 2. $help_text2
 3. $help_text3
 4. $help_text4
+   $help_text4a
 5. $help_text5
 6. $help_text6
 
 $help_text7" > /tmp/mxtc-help.txt
 
-help_imagepath=usr/share/mx-theme-colors/mxtc-help.png
+help_imagepath=/usr/share/mx-theme-colors/mxtc-help.png
 hkey=$RANDOM
 
 yad --plug=$hkey --tabnum=1 \
@@ -364,7 +367,7 @@ case $ret in
             sed -i "s/0F56D9/0f56d9/g" $theme_path_new/gtk-3.0/gtk.css
             sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/gtk-3.0/gtk.css
             sed -i '95 s/C0C6CA/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css
-            sed -i '95 s/3774E4/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css            
+            sed -i '95 s/383D44/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css            
             sed -i 's/rgba(124, 183, 240, 0.35)/#7cb7f0/g' $theme_path_new/gtk-3.0/gtk.css
         fi
 
@@ -472,6 +475,7 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/mx-theme-colors.conf
             sed -i "s/$color_main_old/$color_main_new/g" $icon_name.svg
             sed -i "s/$color_secondary_old/$color_secondary_new/g" $icon_name.svg
             rsvg-convert $icon_name.svg > $theme_path_new/gtk-3.0/assets/$icon_name.png
+            rsvg-convert -x 2.0 -y 2.0 $icon_name.svg > $theme_path_new/gtk-3.0/assets/$icon_name@2.png
         done
 
 
