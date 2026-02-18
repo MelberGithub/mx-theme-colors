@@ -2,7 +2,7 @@
 #Edit the highlight colors of MX-Linux themes
 #for MX-Linux 25 by Melber
 #License: GPL-3.0+
-mxtc_version='26.02.01'
+mxtc_version='26.02.02'
 
 export TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mx-theme-colors"
@@ -78,11 +78,16 @@ help_text4="$(gettext 'Apply selections')"
 #TRANSLATORS Help window text line 4a
 help_text4a="$(gettext 'Repeat steps 1-4 until you are satisfied with the selections')"
 #TRANSLATORS Help window text line 5
-help_text5="$(gettext 'Enter name for new theme (name is appended to selected base theme name)')"
-#TRANSLATORS Help window text line 6
-help_text6="$(gettext 'Click to create theme')"
+help_text5="$(gettext 'Enter name for new theme')"
+#TRANSLATORS Help window text line 5a
+help_text5a="$(gettext '(name is appended to base theme name)')"
 #TRANSLATORS Help window text line 7
-help_text7="$(gettext 'Note: themes are saved in ~/.themes')"
+help_text6="$(gettext 'Confirm if hidpi and xhidpi versions should be created')"
+#TRANSLATORS Help window text line 6
+help_text7="$(gettext 'Click to create theme')"
+#TRANSLATORS Help window text line 7
+help_text8="$(gettext 'Note: themes are saved in ~/.themes')"
+
 
 printf "$help_text0
 
@@ -92,9 +97,11 @@ printf "$help_text0
 4. $help_text4
    $help_text4a
 5. $help_text5
+   $help_text5a
 6. $help_text6
+7. $help_text7
 
-$help_text7" > /tmp/mxtc-help.txt
+$help_text8" > /tmp/mxtc-help.txt
 
 help_imagepath=/usr/share/mx-theme-colors/mxtc-help.png
 hkey=$RANDOM
@@ -110,7 +117,7 @@ yad --plug=$hkey --tabnum=2 \
 
 yad --paned --key=$hkey --orient=horiz --splitter=350 \
 --title="$text_helptitle" --class="$class" --window-icon="$iconpath" \
---borders=10 --center --width=750 --height=300 --text-align=left \
+--borders=10 --center --width=900 --height=300 --text-align=left \
 --button="yad-close" \
 
 rm /tmp/mxtc-help.txt
@@ -199,9 +206,13 @@ text_mainitem2="$(gettext 'Secondary Color')"
 #TRANSLATORS Main window label
 text_mainitem3="$(gettext 'Apply Selections')"
 #TRANSLATORS Main window label
-text_mainname="$(gettext 'New theme name')"
+text_mainname1="$(gettext 'Name for new theme')"
+#TRANSLATORS Main window label
+text_mainname2="$(gettext '(name is appended to base theme)')"
 #TRANSLATORS Main window label
 text_maincurrent="$(gettext 'Make new theme current')"
+#TRANSLATORS Main window label
+text_mainhidpi="$(gettext 'Create hidpi and xhidpi versions')"
 
 #buttons
 #TRANSLATORS Button text
@@ -209,11 +220,11 @@ BTN_CLOSE="$(gettext 'Close')" ; BTN_CLOSE+='!window-close!'
 #TRANSLATORS Button text
 BTN_CREATE="$(gettext 'Create Theme')" ; BTN_CREATE+='!gtk-ok!'
 #TRANSLATORS Button text
-BTN_HELP="$(gettext 'Help')" ; BTN_HELP+='!help-about!'
+BTN_HELP="$(gettext 'Help')" ; BTN_HELP+='!help!'
 #TRANSLATORS Button text
 BTN_ABOUT="$(gettext 'About')" ; BTN_ABOUT+='!help-about!'
 #TRANSLATORS Button text for color picker
-btn_picker="$(gettext 'Picker')"
+btn_picker="$(gettext 'Custom Color Picker')"
 #TRANSLATORS Button text
 btn_apply="$(gettext 'Apply Selections')"
 
@@ -236,18 +247,20 @@ yad --plug=$rkey --tabnum=2 \
 --field="":CB "$found_themes" \
 --field=" ":LBL " " \
 --field="<b>$text_mainitem1</b>":LBL " " \
---field="":CLR "#0f56d9" \
+--field=" ":CLR "#0f56d9" \
 --field="$btn_picker!color-select!":BTN '@bash -c "color_picker 5 %5;"' \
 --field=" ":LBL " " \
 --field="<b>$text_mainitem2</b>":LBL " " \
---field="":CLR "#c3d5f6" \
+--field=" ":CLR "#c3d5f6" \
 --field="$btn_picker!color-select!":BTN '@bash -c "color_picker 9 %9;"' \
 --field=" ":LBL " " \
 --field="$text_mainitem3!reload!":BTN '@bash -c "color_change %2 %5 %9 >$fpipe"' \
 --field=" ":LBL " " \
---field="<b>$text_mainname</b>":LBL " " \
---field="$text_mainitem0-" "new" \
+--field="<b>$text_mainname1</b>":LBL " " \
+--field=" " "new" \
+--field="  $text_mainname2":LBL " " \
 --field=" ":LBL " " \
+--field="$text_mainhidpi":CHK "TRUE" \
 >/tmp/mxtc-output.txt &
 
 
@@ -271,7 +284,7 @@ yad --paned --key=$rkey \
 --orient=horiz --splitter=300 \
 --title="$title" --class="$class" --window-icon="$iconpath" \
 --borders=10 --center --width=520 --height=550 --buttons-layout=spread \
---text="\n<b>$TEXT1\n$TEXT2</b>\n" --text-align=center \
+--text="<b>$TEXT1\n$TEXT2</b>" --text-align=center \
 --button="${BTN_ABOUT}":"bash -c mxtc-about" \
 --button="${BTN_HELP}":"bash -c mxtc-help" \
 --button="${BTN_CLOSE}":2 \
@@ -296,6 +309,7 @@ case $ret in
         theme_name_new=${yadarray[0]}-${yadarray[3]} 
         color_main_new=${yadarray[1]}
         color_secondary_new=${yadarray[2]}
+        theme_hidpi_new=${yadarray[4]}
         
         theme_path_new=$HOME/.themes/$theme_name_new
         
@@ -370,6 +384,7 @@ case $ret in
             sed -i '95 s/C0C6CA/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css
             sed -i '95 s/383D44/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css            
             sed -i 's/rgba(124, 183, 240, 0.35)/#7cb7f0/g' $theme_path_new/gtk-3.0/gtk.css
+
         fi
 
         #make conf
@@ -401,6 +416,55 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/mx-theme-colors.conf
         esac
 
 
+        #cinnamon
+        if [ -d $theme_path_new/cinnamon ]; then
+        
+            sed -i "s/0F56D9/0f56d9/g" $theme_path_new/cinnamon/cinnamon.css
+            sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/cinnamon/cinnamon.css
+            sed -i 's/C0C6CA/7cb7f0/' $theme_path_new/cinnamon/cinnamon.css
+            sed -i 's/3774E4/0f56d9/' $theme_path_new/cinnamon/cinnamon.css
+            sed -i 's/rgba(124, 183, 240, 0.35)/#7CB7F0/g' $theme_path_new/cinnamon/cinnamon.css
+            sed -i 's/rgba(15, 86, 217, 0.25)/#7CB7F0/g' $theme_path_new/cinnamon/cinnamon.css
+
+            sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/cinnamon/cinnamon.css
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/cinnamon/cinnamon.css
+
+            cinnamon_index=$(ls $theme_path_new/cinnamon/*/*/*.svg)
+            cinnamon_index=($cinnamon_index)
+
+            for i in "${cinnamon_index[@]}"; do
+                sed -i "s/0F56D9/0f56d9/g" $i
+                sed -i "s/$color_main_old/$color_main_new/g" $i
+            done
+
+        fi
+
+
+        #gnome-shell
+        if [ -d $theme_path_new/gnome-shell ]; then
+        
+            sed -i "s/0F56D9/0f56d9/g" $theme_path_new/gnome-shell/gnome-shell.css
+            sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/gnome-shell/gnome-shell.css
+            sed -i 's/C0C6CA/7cb7f0/' $theme_path_new/gnome-shell/gnome-shell.css
+            sed -i 's/3774E4/0f56d9/' $theme_path_new/gnome-shell/gnome-shell.css
+            sed -i 's/rgba(124, 183, 240, 0.35)/#7CB7F0/g' $theme_path_new/gnome-shell/gnome-shell.css
+            sed -i 's/rgba(15, 86, 217, 0.25)/#7CB7F0/g' $theme_path_new/gnome-shell/gnome-shell.css
+            
+            sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gnome-shell/gnome-shell.css
+            sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gnome-shell/gnome-shell.css
+
+            gnomeshell_index=$(ls $theme_path_new/gnome-shell/assets/*.svg)
+            gnomeshell_index=($gnomeshell_index)
+
+            for i in "${gnomeshell_index[@]}"; do
+                sed -i "s/0F56D9/0f56d9/g" $i
+                sed -i "s/$color_main_old/$color_main_new/g" $i
+            done
+
+        fi
+        
+        
+        #templates
         template_path=/usr/share/mx-theme-colors/templates  
         
         #progress yad 25%
@@ -422,6 +486,53 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/mx-theme-colors.conf
             sed -i "s/$color_secondary_old/$color_secondary_new/g" $icon_name.svg
             rsvg-convert $icon_name.svg > $theme_path_new/xfwm4/$icon_name.png
         done
+        
+        
+        #hidpi 
+        
+        if [ $theme_hidpi_new = TRUE ]; then
+
+            cp -r /usr/share/themes/$theme_name_base-hidpi $theme_path_new-hidpi
+            sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new-hidpi/index.theme
+
+            if [ $theme_name_base = mx-ease ] ||  $theme_name_base = mx-ease-Dark ]; then
+
+            for i in "${xfwm_index[@]}"; do
+                icon_name=$(basename $i | sed -e 's/.svg//g')
+                rsvg-convert -w 48 -h 48 -a $icon_name.svg > $theme_path_new-hidpi/xfwm4/$icon_name.png
+            done
+
+            elif [ $theme_name_base = mx-matcha ] ||  $theme_name_base = mx-matcha-dark ]; then
+
+            for i in "${xfwm_index[@]}"; do
+                icon_name=$(basename $i | sed -e 's/.svg//g')
+                rsvg-convert -z 1.5 $icon_name.svg > $theme_path_new-hidpi/xfwm4/$icon_name.png
+            done
+
+            fi
+
+        #xhidpi
+
+            cp -r /usr/share/themes/$theme_name_base-xhidpi $theme_path_new-xhidpi
+            sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new-xhidpi/index.theme
+
+            if [ $theme_name_base = mx-ease ] ||  $theme_name_base = mx-ease-Dark ]; then
+
+            for i in "${xfwm_index[@]}"; do
+                icon_name=$(basename $i | sed -e 's/.svg//g')
+                rsvg-convert -w 64 -h 64 -a $icon_name.svg > $theme_path_new-xhidpi/xfwm4/$icon_name.png
+            done
+
+            elif [ $theme_name_base = mx-matcha ] ||  $theme_name_base = mx-matcha-dark ]; then
+
+            for i in "${xfwm_index[@]}"; do
+                icon_name=$(basename $i | sed -e 's/.svg//g')
+                rsvg-convert -z 2.0 $icon_name.svg > $theme_path_new-xhidpi/xfwm4/$icon_name.png
+            done
+
+            fi
+        
+        fi
 
 
         #progress yad 50%

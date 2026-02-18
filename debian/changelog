@@ -1,3 +1,9 @@
+mx-theme-colors (26.02.02) mx; urgency=medium
+
+  * add hipdi, xhidpi, cinnamon and gnome-shell editing
+
+ -- Melber <melber-mx-linux@gmail.com>  Thu, 19 Feb 2026 00:30:00 +0100
+ 
 mx-theme-colors (26.02.01) mx; urgency=medium
 
   * first release dev test version
