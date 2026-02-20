@@ -204,7 +204,7 @@ text_mainitem1="$(gettext 'Main Color')"
 #TRANSLATORS Main window label
 text_mainitem2="$(gettext 'Secondary Color')"
 #TRANSLATORS Main window label
-text_mainitem3="$(gettext 'Apply Selections')"
+text_mainitem3="$(gettext 'Update Preview')"
 #TRANSLATORS Main window label
 text_mainname1="$(gettext 'Name for new theme')"
 #TRANSLATORS Main window label
@@ -225,8 +225,6 @@ BTN_HELP="$(gettext 'Help')" ; BTN_HELP+='!help!'
 BTN_ABOUT="$(gettext 'About')" ; BTN_ABOUT+='!help-about!'
 #TRANSLATORS Button text for color picker
 btn_picker="$(gettext 'Custom Color Picker')"
-#TRANSLATORS Button text
-btn_apply="$(gettext 'Apply Selections')"
 
 #pipe
 export fpipe="$(mktemp -u --tmpdir mxthemeeditor.XXXXXX)"
@@ -384,6 +382,15 @@ case $ret in
             sed -i '95 s/C0C6CA/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css
             sed -i '95 s/383D44/7cb7f0/' $theme_path_new/gtk-3.0/gtk.css            
             sed -i 's/rgba(124, 183, 240, 0.35)/#7cb7f0/g' $theme_path_new/gtk-3.0/gtk.css
+            sed -i 's/rgba(52, 152, 219, 0.55)/#7cb7f0/g' $theme_path_new/gtk-3.0/gtk.css
+
+
+            sed -i "s/0F56D9/0f56d9/g" $theme_path_new/gtk-4.0/gtk.css
+            sed -i "s/7CB7F0/7cb7f0/g" $theme_path_new/gtk-4.0/gtk.css
+            sed -i "s/449AED/7cb7f0/g" $theme_path_new/gtk-4.0/gtk.css
+            sed -i '95 s/C0C6CA/7cb7f0/' $theme_path_new/gtk-4.0/gtk.css
+            sed -i '95 s/383D44/7cb7f0/' $theme_path_new/gtk-4.0/gtk.css            
+            sed -i 's/rgba(124, 183, 240, 0.35)/#7cb7f0/g' $theme_path_new/gtk-4.0/gtk.css
 
         fi
 
@@ -592,7 +599,7 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/mx-theme-colors.conf
 
 
         #gtk4
-        cp -r $theme_path_new/gtk-3.0/assets $theme_path_new/gtk-4.0/assets
+        cp -rf $theme_path_new/gtk-3.0/assets $theme_path_new/gtk-4.0
  
         sed -i "s/$color_main_old/$color_main_new/g" $theme_path_new/gtk-4.0/gtk.css       
         sed -i "s/$color_secondary_old/$color_secondary_new/g" $theme_path_new/gtk-4.0/gtk.css
