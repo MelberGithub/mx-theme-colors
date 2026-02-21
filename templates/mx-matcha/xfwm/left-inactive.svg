@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4"
+   height="16"
+   viewBox="0 0 4 16"
+   id="svg2"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="matcha" />
+  <rect
+     style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke-width:0;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers fill stroke;stroke-dasharray:none;stroke:none"
+     id="rect2678"
+     width="2"
+     height="16"
+     x="40"
+     y="187"
+     transform="translate(-40,-187)" />
+  <rect
+     style="opacity:1;fill:#1b1d24;fill-opacity:1;stroke:none;stroke-width:1.41421;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect2684"
+     width="2"
+     height="16"
+     x="-44"
+     y="187"
+     transform="matrix(-1,0,0,1,-40,-187)" />
+</svg>

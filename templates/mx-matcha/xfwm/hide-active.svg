@@ -43,68 +43,25 @@
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <g
-     id="layer1"
-     transform="translate(-5,-623.3621)">
-    <g
-       id="hide-active">
-      <g
-         id="use4234"
-         transform="translate(0,65.999977)">
-        <rect
-           style="opacity:1;fill:url(#linearGradient8524);fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect8518"
-           width="28"
-           height="31.999998"
-           x="5"
-           y="557.36218" />
-        <rect
-           style="opacity:1;fill:#0f56d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect8520"
-           width="28"
-           height="2"
-           x="5"
-           y="557.36212" />
-      </g>
-      <g
-         transform="translate(7.00002,625.36215)"
-         id="g5113"
-         style="enable-background:new">
-        <g
-           id="layer1-48"
-           transform="translate(0,-1028.3622)">
-          <g
-             style="display:inline;opacity:0.7"
-             id="titlebutton-min-dark"
-             transform="translate(-583.00002,1218)">
-            <g
-               id="g7138-6-5"
-               style="display:inline;opacity:1"
-               transform="translate(-781,-432.63782)">
-              <g
-                 transform="translate(-58)"
-                 style="display:inline;opacity:1"
-                 id="g4490-3-75-4-7">
-                <g
-                   id="g4092-0-7-0-4-9"
-                   style="display:inline"
-                   transform="translate(58)" />
-              </g>
-              <path
-                 d="m 1372,257.00002 v 2 h 8 v -2 z"
-                 id="rect9057-4-3-8-5"
-                 style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#b9bac2;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate" />
-            </g>
-            <rect
-               y="-185.63782"
-               x="587"
-               height="16"
-               width="16"
-               id="rect17883-32-6-9"
-               style="display:inline;opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0" />
-          </g>
-        </g>
-      </g>
-    </g>
-  </g>
+  <rect
+     style="opacity:1;fill:#1b1d24;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect8518"
+     width="28"
+     height="31.999998"
+     x="5"
+     y="557.36218"
+     transform="translate(-5,-557.36212)" />
+  <rect
+     style="opacity:1;fill:#0f56d9;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect8520"
+     width="28"
+     height="2"
+     x="5"
+     y="557.36212"
+     transform="translate(-5,-557.36212)" />
+  <path
+     d="m 1372,257.00002 v 2 h 8 v -2 z"
+     id="rect9057-4-3-8-5"
+     style="enable-background:accumulate;display:inline;opacity:1;color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:Sans;-inkscape-font-specification:Sans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;baseline-shift:baseline;text-anchor:start;overflow:visible;visibility:visible;fill:#a9afbd;fill-opacity:1;stroke:none;stroke-width:2;marker:none"
+     transform="translate(-1362,-240.99997)" />
 </svg>

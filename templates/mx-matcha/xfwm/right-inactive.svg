@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="4"
+   height="16"
+   viewBox="0 0 4 16"
+   id="svg2"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="matcha" />
+  <g
+     id="right-active"
+     transform="translate(-53,-187)">
+    <rect
+       style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke-width:0;stroke-linecap:square;stroke-miterlimit:2;paint-order:markers fill stroke;stroke:none;stroke-dasharray:none"
+       id="rect2678-2"
+       width="2"
+       height="16"
+       x="55"
+       y="187" />
+    <rect
+       style="opacity:1;fill:#1b1d24;fill-opacity:1;stroke:none;stroke-width:1.41421;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect2821"
+       width="2"
+       height="16"
+       x="-55"
+       y="187"
+       transform="scale(-1,1)" />
+  </g>
+</svg>
