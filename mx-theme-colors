@@ -2,7 +2,7 @@
 #Edit the highlight colors of MX-Linux themes
 #for MX-Linux 25 by Melber
 #License: GPL-3.0+
-mxtc_version='26.02.02'
+export mxtc_version='26.02.03'
 
 export TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mx-theme-colors"
@@ -68,13 +68,13 @@ text_helptitle="$(gettext 'MX Theme Colors Help')"
 #TRANSLATORS Help window text line 0
 help_text0="$(gettext 'To create a new theme:')"
 #TRANSLATORS Help window text line 1
-help_text1="$(gettext 'Select theme to be edited')"
+help_text1="$(gettext 'Select theme to be edited from the drop-down list')"
 #TRANSLATORS Help window text line 2
-help_text2="$(gettext 'Select new main color')"
+help_text2="$(gettext 'Select new main color with the color palette or picker')"
 #TRANSLATORS Help window text line 3
-help_text3="$(gettext 'Select new secondary color')"
+help_text3="$(gettext 'Select new secondary color with the color palette or picker')"
 #TRANSLATORS Help window text line 4
-help_text4="$(gettext 'Apply selections')"
+help_text4="$(gettext 'Update the preview image with the current selections')"
 #TRANSLATORS Help window text line 4a
 help_text4a="$(gettext 'Repeat steps 1-4 until you are satisfied with the selections')"
 #TRANSLATORS Help window text line 5
@@ -141,7 +141,7 @@ yad --about --class="$class" --window-icon="$iconpath" \
 --website-label="https://mxlinux.org/" \
 --website="https://mxlinux.org/" \
 --copyright="Copyright (c) 2026 Melber" \
---authors="Melber, MX Devs" \
+--authors="Melber,MX Devs" \
 --license="GPL3" \
 --center
 }
@@ -272,17 +272,17 @@ yad --plug=$rkey --tabnum=1 \
 --column=":IMG" <&3  &
 
 #TRANSLATORS Main window text line 1
-TEXT1="$(gettext 'Select base theme, main and secondary colors.')"
+TEXT1="$(gettext 'Edit the highlight colors of the mx-matcha and mx-ease themes.')"
 #TRANSLATORS Main window text line 2
-TEXT2="$(gettext 'Apply selections, then name and create new theme.')"
+TEXT2="$(gettext 'Select base theme, main and secondary colors.')"
 #TRANSLATORS Main window text line 3
-TEXT3="$(gettext 'Name and create new theme.')"
+TEXT3="$(gettext 'Update preview, name and create new theme.')"
 
 yad --paned --key=$rkey \
 --orient=horiz --splitter=300 \
 --title="$title" --class="$class" --window-icon="$iconpath" \
 --borders=10 --center --width=520 --height=550 --buttons-layout=spread \
---text="<b>$TEXT1\n$TEXT2</b>" --text-align=center \
+--text="<b>$TEXT1</b>\n$TEXT2\n$TEXT3" --text-align=center \
 --button="${BTN_ABOUT}":"bash -c mxtc-about" \
 --button="${BTN_HELP}":"bash -c mxtc-help" \
 --button="${BTN_CLOSE}":2 \
@@ -499,38 +499,49 @@ color_secondary_new=$color_secondary_new" > $theme_path_new/mx-theme-colors.conf
         
         if [ $theme_hidpi_new = TRUE ]; then
 
-            cp -r /usr/share/themes/$theme_name_base-hidpi $theme_path_new-hidpi
-            sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new-hidpi/index.theme
+            if [ $theme_name_base = mx-ease-Dark ]; then
+                cp -r /usr/share/themes/mx-ease-hidpi-Dark $theme_path_new-hidpi
+                sed -i "s/mx-ease-hidpi-Dark/$theme_name_new-hidpi/g" $theme_path_new-hidpi/index.theme            
+            else        
+                cp -r /usr/share/themes/$theme_name_base-hidpi $theme_path_new-hidpi
+                sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new-hidpi/index.theme
+            fi
 
-            if [ $theme_name_base = mx-ease ] ||  $theme_name_base = mx-ease-Dark ]; then
+            if [ $theme_name_base = mx-ease ] || [ $theme_name_base = mx-ease-Dark ]; then
 
             for i in "${xfwm_index[@]}"; do
                 icon_name=$(basename $i | sed -e 's/.svg//g')
                 rsvg-convert -w 48 -h 48 -a $icon_name.svg > $theme_path_new-hidpi/xfwm4/$icon_name.png
             done
 
-            elif [ $theme_name_base = mx-matcha ] ||  $theme_name_base = mx-matcha-dark ]; then
+            elif [ $theme_name_base = mx-matcha ] || [ $theme_name_base = mx-matcha-dark ]; then
 
             for i in "${xfwm_index[@]}"; do
                 icon_name=$(basename $i | sed -e 's/.svg//g')
                 rsvg-convert -z 1.5 $icon_name.svg > $theme_path_new-hidpi/xfwm4/$icon_name.png
             done
-
+            
             fi
+
 
         #xhidpi
 
-            cp -r /usr/share/themes/$theme_name_base-xhidpi $theme_path_new-xhidpi
-            sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new-xhidpi/index.theme
+            if [ $theme_name_base = mx-ease-Dark ]; then
+                cp -r /usr/share/themes/mx-ease-xhidpi-Dark $theme_path_new-xhidpi
+                sed -i "s/mx-ease-xhidpi-Dark/$theme_name_new-xhidpi/g" $theme_path_new-xhidpi/index.theme            
+            else        
+                cp -r /usr/share/themes/$theme_name_base-xhidpi $theme_path_new-xhidpi
+                sed -i "s/$theme_name_base/$theme_name_new/g" $theme_path_new-xhidpi/index.theme
+            fi
 
-            if [ $theme_name_base = mx-ease ] ||  $theme_name_base = mx-ease-Dark ]; then
+            if [ $theme_name_base = mx-ease ] || [ $theme_name_base = mx-ease-Dark ]; then
 
             for i in "${xfwm_index[@]}"; do
                 icon_name=$(basename $i | sed -e 's/.svg//g')
                 rsvg-convert -w 64 -h 64 -a $icon_name.svg > $theme_path_new-xhidpi/xfwm4/$icon_name.png
             done
 
-            elif [ $theme_name_base = mx-matcha ] ||  $theme_name_base = mx-matcha-dark ]; then
+            elif [ $theme_name_base = mx-matcha ] || [ $theme_name_base = mx-matcha-dark ]; then
 
             for i in "${xfwm_index[@]}"; do
                 icon_name=$(basename $i | sed -e 's/.svg//g')

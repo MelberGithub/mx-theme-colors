@@ -1,3 +1,11 @@
+mx-theme-colors (26.02.03) mx; urgency=medium
+
+  * xfwm4 update matcha hover window buttons
+  * xfwm4 hipdi and xhidpi fixes
+  * gtk3 and gtk4 fixes
+
+ -- Melber <melber-mx-linux@gmail.com>  Sat, 21 Feb 2026 23:00:00 +0100
+ 
 mx-theme-colors (26.02.02) mx; urgency=medium
 
   * add hipdi, xhidpi, cinnamon and gnome-shell editing

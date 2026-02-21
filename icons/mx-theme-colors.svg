@@ -28,7 +28,7 @@
      style="display:inline;fill:#87b158;fill-opacity:1;fill-rule:evenodd;stroke:#cacdd0;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:1;paint-order:markers fill stroke"
      d="M 33,8.4140625 V 39.585938 C 38.37859,36.473258 42,30.66138 42,24 42,17.338631 38.37859,11.526746 33,8.4140625 Z" />
   <path
-     style="display:inline;opacity:1;fill:#1d2324;fill-opacity:1;stroke-width:0.999997"
+     style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke-width:1;stroke:#ffffff;stroke-opacity:1;stroke-dasharray:none"
      id="path1691"
      d="M 18.255998,16 16,18.256 21.744,24 16,29.744 18.255998,32 24,26.256 29.744,32 32,29.744 26.255997,24 32,18.256 29.744,16 24,21.744 Z" />
 </svg>
