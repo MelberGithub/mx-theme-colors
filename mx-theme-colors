@@ -9,6 +9,8 @@ export TEXTDOMAIN="mx-theme-colors"
 source gettext.sh
 
 #variables
+
+#TRANSLATORS App Name
 export title="$(gettext 'MX Theme Colors')"
 export class="mx-theme-colors"
 export iconpath="/usr/share/icons/hicolor/scalable/apps/mx-theme-colors.svg"

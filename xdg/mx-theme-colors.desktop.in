@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+#TRANSLATORS The desktop entry name will be shown within the menu
+Name=MX Theme Colors
+#TRANSLATORS The desktop entry comment will be shown within the menu
+Comment=Edit the highlight colors of MX-Linux themes
+Exec=mx-theme-colors
+Terminal=false
+Type=Application
+Icon=mx-theme-colors
+Categories=Settings;MX-Setup;
+NoDisplay=false
