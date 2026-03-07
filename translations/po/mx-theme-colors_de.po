@@ -1,0 +1,233 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+# Translators:
+# aer, 2026
+# fehlix, 2026
+# Vinzenz Vietzke <vv@muibox.de>, 2026
+# delix02, 2026
+# Melber, 2026
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-22 12:13+0100\n"
+"PO-Revision-Date: 2026-02-22 20:02+0000\n"
+"Last-Translator: Melber, 2026\n"
+"Language-Team: German (https://app.transifex.com/anticapitalista/teams/10162/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. TRANSLATORS App Name
+#: ../mx-theme-colors:14
+msgid "MX Theme Colors"
+msgstr "MX Themenfarben"
+
+#. TRANSLATORS warning message if themes are not installed line 1
+#: ../mx-theme-colors:39
+msgid "Themes not found!"
+msgstr "Themen nicht gefunden!"
+
+#. TRANSLATORS warning message if themes are not installed line 2
+#: ../mx-theme-colors:41
+msgid "This tool requires the MX-Matcha and MX-Ease themes to be installed."
+msgstr ""
+"Für dieses Werkzeug müssen die MX-Matcha und MX-Ease Themen installiert sein."
+
+#. TRANSLATORS Help window title
+#: ../mx-theme-colors:69
+msgid "MX Theme Colors Help"
+msgstr "MX Themnfarben - Hilfe"
+
+#. TRANSLATORS Help window text line 0
+#: ../mx-theme-colors:71
+msgid "To create a new theme:"
+msgstr "Erstellung eines neuen Themas:"
+
+#. TRANSLATORS Help window text line 1
+#: ../mx-theme-colors:73
+msgid "Select theme to be edited from the drop-down list"
+msgstr "zu bearbeitendes Thema aus der Dropdownliste auswählen"
+
+#. TRANSLATORS Help window text line 2
+#: ../mx-theme-colors:75
+msgid "Select new main color with the color palette or picker"
+msgstr "Neue Hauptfarbe mit der Farbenpalette oder der Pipette auswählen"
+
+#. TRANSLATORS Help window text line 3
+#: ../mx-theme-colors:77
+msgid "Select new secondary color with the color palette or picker"
+msgstr "Neuen Zweitfarbe mit der Farbenpalette oder der Pipette auswählen"
+
+#. TRANSLATORS Help window text line 4
+#: ../mx-theme-colors:79
+msgid "Update the preview image with the current selections"
+msgstr "Vorschau mit der neuen Auswahl aktualisieren"
+
+#. TRANSLATORS Help window text line 4a
+#: ../mx-theme-colors:81
+msgid "Repeat steps 1-4 until you are satisfied with the selections"
+msgstr "Schritte 1-4 wiederholen, bis die Auswahl zufrieden stellend ist"
+
+#. TRANSLATORS Help window text line 5
+#: ../mx-theme-colors:83
+msgid "Enter name for new theme"
+msgstr "Namen für das neue Thema eingeben"
+
+#. TRANSLATORS Help window text line 5a
+#: ../mx-theme-colors:85
+msgid "(name is appended to base theme name)"
+msgstr "(Name wird an den Basisthemennamen angehängt)"
+
+#. TRANSLATORS Help window text line 7
+#: ../mx-theme-colors:87
+msgid "Confirm if hidpi and xhidpi versions should be created"
+msgstr "Bestätigen ob hidpi- und xhidpi-Versionen erzeugt werden sollen"
+
+#. TRANSLATORS Help window text line 6
+#: ../mx-theme-colors:89
+msgid "Click to create theme"
+msgstr "Klick um das Thema zu erstellen"
+
+#. TRANSLATORS Help window text line 7
+#: ../mx-theme-colors:91
+msgid "Note: themes are saved in ~/.themes"
+msgstr "Hinweis: Themen werden in ~/.themes gespeichert"
+
+#. TRANSLATORS Text in About window
+#: ../mx-theme-colors:134
+msgid "Edit the highlight colors of MX themes."
+msgstr "Hervorhebungsfarben der MX Themen bearbeiten."
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:203
+msgid "Base Theme"
+msgstr "Basisthema"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:205
+msgid "Main Color"
+msgstr "Hauptfarbe"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:207
+msgid "Secondary Color"
+msgstr "Zweitfarbe"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:209
+msgid "Update Preview"
+msgstr "Vorschau aktualisieren"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:211
+msgid "Name for new theme"
+msgstr "Name für neues Thema"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:213
+msgid "(name is appended to base theme)"
+msgstr "(Name wird an den Basisthemennamen angehängt)"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:215
+msgid "Make new theme current"
+msgstr "Neus Thema verwenden"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:217
+msgid "Create hidpi and xhidpi versions"
+msgstr "hidpi- und xhidpi-Versionen erstellen"
+
+#. TRANSLATORS Button text
+#: ../mx-theme-colors:221
+msgid "Close"
+msgstr "Schließen"
+
+#. TRANSLATORS Button text
+#: ../mx-theme-colors:223
+msgid "Create Theme"
+msgstr "Thema erstellen"
+
+#. TRANSLATORS Button text
+#: ../mx-theme-colors:225
+msgid "Help"
+msgstr "Hilfe"
+
+#. TRANSLATORS Button text
+#: ../mx-theme-colors:227
+msgid "About"
+msgstr "Über"
+
+#. TRANSLATORS Button text for color picker
+#: ../mx-theme-colors:229
+msgid "Custom Color Picker"
+msgstr "Benutzerdefinierter Farbwähler"
+
+#. TRANSLATORS Main window label
+#: ../mx-theme-colors:268
+msgid "Preview"
+msgstr "Vorschau"
+
+#. TRANSLATORS Main window text line 1
+#: ../mx-theme-colors:277
+msgid "Edit the highlight colors of the mx-matcha and mx-ease themes."
+msgstr "Hervorhebungsfarben der MX-Matcha und MX-Ease Themen bearbeiten."
+
+#. TRANSLATORS Main window text line 2
+#: ../mx-theme-colors:279
+msgid "Select base theme, main and secondary colors."
+msgstr "Basisthema, Haupt- und Zweitfarben auswählen."
+
+#. TRANSLATORS Main window text line 3
+#: ../mx-theme-colors:281
+msgid "Update preview, name and create new theme."
+msgstr "Vorschau aktualisieren, neues Thema benennen und erstellen."
+
+#. TRANSLATORS Existing theme name window text line 1
+#: ../mx-theme-colors:328
+msgid "A theme with this name already exists."
+msgstr "Ein Thema mit diesem Namen existiert bereits"
+
+#. TRANSLATORS Existing theme name window text line 2
+#: ../mx-theme-colors:330
+msgid "Do you want to overwrite or save as a different theme name"
+msgstr "Überschreiben oder unter einem anderen Namen speichern?"
+
+#. TRANSLATORS Existing theme name button
+#: ../mx-theme-colors:332
+msgid "Overwrite theme"
+msgstr "Thema überschreiben"
+
+#. TRANSLATORS Existing theme name button
+#: ../mx-theme-colors:334
+msgid "Save as different name"
+msgstr "Speichern unter anderem Namen"
+
+#. TRANSLATORS Progress window text
+#: ../mx-theme-colors:364 ../mx-theme-colors:624
+msgid "Creating theme"
+msgstr "Thema wird erzeugt"
+
+#. TRANSLATORS Task Completed window text 1
+#: ../mx-theme-colors:634
+msgid "All done!"
+msgstr "Fertig!"
+
+#. TRANSLATORS Task Completed window text 2, text is preceeded by theme name
+#. and followed by path
+#: ../mx-theme-colors:636
+msgid "has been saved in"
+msgstr "gespeichert unter"
+
+#. TRANSLATORS Task Completed window text 3
+#: ../mx-theme-colors:640
+msgid "Change themes with MX-Tweak"
+msgstr "Themen können mit MX-Tweak ausgewählt werden."
