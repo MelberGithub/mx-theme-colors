@@ -2,7 +2,7 @@
 #Edit the highlight colors of MX-Linux themes
 #for MX-Linux 25 by Melber
 #License: GPL-3.0+
-export mxtc_version='26.02.03'
+export mxtc_version='26.03.01'
 
 export TEXTDOMAINDIR=/usr/share/locale
 export TEXTDOMAIN="mx-theme-colors"
