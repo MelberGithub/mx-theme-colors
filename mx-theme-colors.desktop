@@ -54,3 +54,4 @@ Type=Application
 Icon=mx-theme-colors
 Categories=Settings;MX-Setup;
 NoDisplay=false
+NotShowIn=KDE

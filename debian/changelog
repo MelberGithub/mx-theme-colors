@@ -1,3 +1,10 @@
+mx-theme-colors (26.03.01) mx; urgency=medium
+
+  * check for wayland session
+  * add translations
+
+ -- Melber <melber-mx-linux@gmail.com>  Sun, 8 Feb 2026 17:00:00 +0100
+
 mx-theme-colors (26.02.03) mx; urgency=medium
 
   * xfwm4 update matcha hover window buttons

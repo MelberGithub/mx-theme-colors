@@ -15,6 +15,19 @@ export title="$(gettext 'MX Theme Colors')"
 export class="mx-theme-colors"
 export iconpath="/usr/share/icons/hicolor/scalable/apps/mx-theme-colors.svg"
 
+#check for wayland
+if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
+#TRANSLATORS warning message that tool doesn't work with wayland
+    wayland_text_1="$(gettext 'Sorry, this tool is not available when running a wayland session.')"
+
+    yad --title="$title" --class="$class" --window-icon="$iconpath" \
+    --borders=10 --center --width=300 --height=100 \
+    --text="\n$wayland_text_1\n" --text-align=center \
+    --button=yad-close \
+
+    exit
+fi
+
 #check for themes
 if [ -d /usr/share/themes/mx-matcha ]; then
     found_matcha='mx-matcha!'
@@ -41,7 +54,7 @@ if [ -z "$found_themes" ]; then
     nothemes_text_2="$(gettext 'This tool requires the MX-Matcha and MX-Ease themes to be installed.')"
 
     yad --title="$title" --class="$class" --window-icon="$iconpath" \
-    --borders=10 --center --width=300 --height=200 \
+    --borders=10 --center --width=300 --height=100 \
     --text="\n\n<b>$nothemes_text_1</b>\n\n$nothemes_text_2\n" --text-align=center \
     --button=yad-close \
     
@@ -119,7 +132,7 @@ yad --plug=$hkey --tabnum=2 \
 
 yad --paned --key=$hkey --orient=horiz --splitter=350 \
 --title="$text_helptitle" --class="$class" --window-icon="$iconpath" \
---borders=10 --center --width=900 --height=300 --text-align=left \
+--borders=10 --center --width=1050 --height=300 --text-align=left \
 --button="yad-close" \
 
 rm /tmp/mxtc-help.txt
@@ -283,7 +296,7 @@ TEXT3="$(gettext 'Update preview, name and create new theme.')"
 yad --paned --key=$rkey \
 --orient=horiz --splitter=300 \
 --title="$title" --class="$class" --window-icon="$iconpath" \
---borders=10 --center --width=520 --height=550 --buttons-layout=spread \
+--borders=10 --center --width=700 --height=550 --buttons-layout=spread \
 --text="<b>$TEXT1</b>\n$TEXT2\n$TEXT3" --text-align=center \
 --button="${BTN_ABOUT}":"bash -c mxtc-about" \
 --button="${BTN_HELP}":"bash -c mxtc-help" \
