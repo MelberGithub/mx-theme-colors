@@ -39,12 +39,12 @@ msgstr "Themen nicht gefunden!"
 #: ../mx-theme-colors:41
 msgid "This tool requires the MX-Matcha and MX-Ease themes to be installed."
 msgstr ""
-"Für dieses Werkzeug müssen die MX-Matcha und MX-Ease Themen installiert sein."
+"Für dieses Werkzeug müßen die MX-Matcha und MX-Ease Themen installiert sein."
 
 #. TRANSLATORS Help window title
 #: ../mx-theme-colors:69
 msgid "MX Theme Colors Help"
-msgstr "MX Themnfarben - Hilfe"
+msgstr "MX Themenfarben - Hilfe"
 
 #. TRANSLATORS Help window text line 0
 #: ../mx-theme-colors:71

@@ -52,6 +52,6 @@ Exec=mx-theme-colors
 Terminal=false
 Type=Application
 Icon=mx-theme-colors
-Categories=Settings;MX-Setup;
+Categories=Settings;X-MX-Setup;
 NoDisplay=false
 NotShowIn=KDE
